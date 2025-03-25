@@ -20,12 +20,16 @@ function App() {
   const [toastMessage, setToastMessage] = useState('');
   const [toastVariant, setToastVariant] = useState('success');
 
-  useEffect(() => {
-    axios.get(https://etech-efkd.onrender.com/api/products/products')
-      .then(response => setProducts(response.data));
-    axios.get('https://etech-efkd.onrender.com/api/products/products')
-      .then(response => setRecommendations(response.data));
-  }, []);
+ useEffect(() => {
+  axios.get('https://etech-efkd.onrender.com/api/products/products') // ✅ Now correct
+    .then(response => setProducts(response.data))
+    .catch(error => console.error('Error fetching products:', error));
+
+  axios.get('https://etech-efkd.onrender.com/api/products/products')
+    .then(response => setRecommendations(response.data))
+    .catch(error => console.error('Error fetching recommendations:', error));
+}, []);
+
 
   const handleAddToCart = (item) => {
     setCartItems(prevItems => {
