@@ -16,7 +16,7 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", credentials);
+      const res = await axios.post("https://etech-efkd.onrender.com/api/auth/login", credentials);
       localStorage.setItem("token", res.data.token); // Store token
       console.log("Login successful:", res.data);
       navigate("/"); // Redirect to homepage or dashboard
