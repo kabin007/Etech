@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     axios.get(https://etech-efkd.onrender.com/api/products/products')
       .then(response => setProducts(response.data));
-    axios.get('http://localhost:5000/api/products/products')
+    axios.get('https://etech-efkd.onrender.com/api/products/products')
       .then(response => setRecommendations(response.data));
   }, []);
 
